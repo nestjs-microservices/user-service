@@ -25,7 +25,7 @@ export class UserController {
     return this.getUserUseCase.exec(email);
   }
 
-  @MessagePattern({ cmd: 'getUserByEmail' })
+  @MessagePattern({ cmd: 'getUserById' })
   getUserById(id: number): Promise<UserEntity> {
     return this.getUserByIdUseCase.exec(id);
   }
