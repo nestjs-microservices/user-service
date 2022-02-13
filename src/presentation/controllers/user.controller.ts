@@ -1,8 +1,9 @@
-import { Controller, UseFilters } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
 import { UserEntity } from '../../domain/entities/user.entity';
 import { CreateUserUseCase } from '../../application/use-cases/user/create-user.use-case';
 import { GetUserUseCase } from '../../application/use-cases/user/get-user.use-case';
+import { GetUserByIdUseCase } from '../../application/use-cases/user/get-user-by-id.use-case';
 
 export type CreateUserArgs = Omit<UserEntity, 'id'>;
 
@@ -11,6 +12,7 @@ export class UserController {
   constructor(
     private createUserUseCase: CreateUserUseCase,
     private getUserUseCase: GetUserUseCase,
+    private getUserByIdUseCase: GetUserByIdUseCase,
   ) {}
 
   @MessagePattern({ cmd: 'createUser' })
@@ -21,5 +23,10 @@ export class UserController {
   @MessagePattern({ cmd: 'getUserByEmail' })
   getUserByEmail(email: string): Promise<UserEntity> {
     return this.getUserUseCase.exec(email);
+  }
+
+  @MessagePattern({ cmd: 'getUserByEmail' })
+  getUserById(id: number): Promise<UserEntity> {
+    return this.getUserByIdUseCase.exec(id);
   }
 }
