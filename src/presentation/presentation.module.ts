@@ -4,11 +4,18 @@ import { AppService } from '../domain/services/app.service';
 import { UserController } from './controllers/user.controller';
 import { CreateUserUseCase } from '../application/use-cases/user/create-user.use-case';
 import { UserPort } from '../application/ports/user.port';
-import {PrismaService} from "../domain/services/prisma.service";
+import { PrismaService } from '../domain/services/prisma.service';
+import { GetUserUseCase } from '../application/use-cases/user/get-user.use-case';
 
 @Module({
   imports: [],
   controllers: [AppController, UserController],
-  providers: [AppService, CreateUserUseCase, UserPort, PrismaService],
+  providers: [
+    AppService,
+    CreateUserUseCase,
+    GetUserUseCase,
+    UserPort,
+    PrismaService,
+  ],
 })
 export class PresentationModule {}
