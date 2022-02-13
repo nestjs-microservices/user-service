@@ -17,10 +17,11 @@ export class UserPort {
 
   async getUser(email: string) {
     const user = await this.prismaService.user.findUnique({ where: { email } });
-    const { password } = await this.prismaService.userCredential.findFirst({
-      where: { user_id: user.id },
-      orderBy: { created_at: 'desc' },
-    });
-    return new UserEntity(user.id, user.email, password);
+    return new UserEntity(user.id, user.email, '');
+  }
+
+  async getUserById(id: number) {
+    const user = await this.prismaService.user.findUnique({ where: { id } });
+    return new UserEntity(user.id, user.email, '');
   }
 }
