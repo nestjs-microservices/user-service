@@ -13,6 +13,6 @@ export class ExceptionFilter implements RpcExceptionFilter<RpcException> {
     const logger = new Logger();
     const error = exception.getError() as any;
     logger.error(error.message, 'RPCExceptionFilter');
-    return throwError(error);
+    return throwError(() => error);
   }
 }
