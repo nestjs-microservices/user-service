@@ -7,6 +7,6 @@ export class GetUserUseCase implements UseCase {
   constructor(private userPort: UserPort) {}
 
   exec(email: string) {
-    return this.userPort.getUser(email);
+    return this.userPort.getUserByEmail(email);
   }
 }
