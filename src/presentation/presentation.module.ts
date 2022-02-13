@@ -4,7 +4,7 @@ import { AppService } from '../domain/services/app.service';
 import { UserController } from './controllers/user.controller';
 import { CreateUserUseCase } from '../application/use-cases/user/create-user.use-case';
 import { UserPort } from '../application/ports/user.port';
-import {PrismaService} from "../domain/services/prisma/prisma.service";
+import {PrismaService} from "../domain/services/prisma.service";
 
 @Module({
   imports: [],
