@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './controllers/app.controller';
-import { AppService } from '../domain/services/app.service';
+import { AppService } from '../application/services/app.service';
 import { UserController } from './controllers/user.controller';
 import { CreateUserUseCase } from '../application/use-cases/user/create-user.use-case';
 import { UserPort } from '../application/ports/user.port';
-import { PrismaService } from '../domain/services/prisma.service';
+import { PrismaService } from '../application/services/prisma.service';
 import { GetUserUseCase } from '../application/use-cases/user/get-user.use-case';
-import { LoggerService } from '../domain/services/logger.service';
+import { LoggerService } from '../application/services/logger.service';
 import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
 import { TransportInterceptor } from '../application/interceptors/transport.interceptor';
 import { ExceptionFilter } from '../application/filters/exception.filter';

@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 
 import { Observable, tap } from 'rxjs';
-import { LoggerService } from '../../domain/services/logger.service';
+import { LoggerService } from '../services/logger.service';
 import { formatCommand, getCommand } from '../helpers/execution-context.helper';
 
 @Injectable()

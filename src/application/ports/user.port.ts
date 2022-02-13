@@ -1,5 +1,5 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
-import { PrismaService } from '../../domain/services/prisma.service';
+import { PrismaService } from '../services/prisma.service';
 import { UserEntity } from '../../domain/entities/user.entity';
 import { CreateUserArgs } from '../../presentation/controllers/user.controller';
 import { RpcException } from '@nestjs/microservices';
