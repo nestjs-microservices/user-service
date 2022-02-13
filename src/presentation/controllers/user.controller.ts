@@ -1,4 +1,4 @@
-import { Controller } from '@nestjs/common';
+import { Controller, UseFilters } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
 import { UserEntity } from '../../domain/entities/user.entity';
 import { CreateUserUseCase } from '../../application/use-cases/user/create-user.use-case';
@@ -18,8 +18,8 @@ export class UserController {
     return this.createUserUseCase.exec(args);
   }
 
-  @MessagePattern({ cmd: 'getUser' })
-  getUser(email: string): Promise<UserEntity> {
+  @MessagePattern({ cmd: 'getUserByEmail' })
+  getUserByEmail(email: string): Promise<UserEntity> {
     return this.getUserUseCase.exec(email);
   }
 }
