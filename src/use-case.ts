@@ -1,3 +1,3 @@
-export interface UseCase<T> {
-  exec(payload: T);
+export interface UseCase {
+  exec(payload: any);
 }
