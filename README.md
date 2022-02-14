@@ -58,6 +58,12 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Initiating database with docker
+```
+mkdir -p ~/works/postgres-data
+docker run -d --name postgresql -e POSTGRES_PASSWORD=bnloYXNpbmE= -v ${HOME}/works/postgres-data/:/var/lib/postgresql/data -p 5432:5432 postgres0
+```
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
