@@ -11,8 +11,14 @@ import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
 import { TransportInterceptor } from '../application/interceptors/transport.interceptor';
 import { ExceptionFilter } from '../application/filters/exception.filter';
 import { GetUserByIdUseCase } from '../application/use-cases/user/get-user-by-id.use-case';
+import { UpdateUserUseCase } from '../application/use-cases/user/update-user.use-case';
 
-const USE_CASES = [CreateUserUseCase, GetUserUseCase, GetUserByIdUseCase];
+const USE_CASES = [
+  CreateUserUseCase,
+  GetUserUseCase,
+  GetUserByIdUseCase,
+  UpdateUserUseCase,
+];
 const PORTS = [UserPort];
 const SERVICES = [PrismaService, LoggerService];
 const TRANSPORTS = [
