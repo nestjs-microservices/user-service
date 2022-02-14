@@ -4,8 +4,7 @@ import { UserEntity } from '../../domain/entities/user.entity';
 import { CreateUserUseCase } from '../../application/use-cases/user/create-user.use-case';
 import { GetUserUseCase } from '../../application/use-cases/user/get-user.use-case';
 import { GetUserByIdUseCase } from '../../application/use-cases/user/get-user-by-id.use-case';
-
-export type CreateUserArgs = Omit<UserEntity, 'id'>;
+import { CreateUserArgs } from '../../application/types/user/create-user-args.type';
 
 @Controller('users')
 export class UserController {
