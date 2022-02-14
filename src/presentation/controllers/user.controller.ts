@@ -5,6 +5,7 @@ import { CreateUserUseCase } from '../../application/use-cases/user/create-user.
 import { GetUserUseCase } from '../../application/use-cases/user/get-user.use-case';
 import { GetUserByIdUseCase } from '../../application/use-cases/user/get-user-by-id.use-case';
 import { CreateUserArgs } from '../../application/types/user/create-user-args.type';
+import { UpdateUserUseCase } from '../../application/use-cases/user/update-user.use-case';
 
 @Controller('users')
 export class UserController {
@@ -12,6 +13,7 @@ export class UserController {
     private createUserUseCase: CreateUserUseCase,
     private getUserUseCase: GetUserUseCase,
     private getUserByIdUseCase: GetUserByIdUseCase,
+    private updateUserUseCase: UpdateUserUseCase,
   ) {}
 
   @MessagePattern({ cmd: 'createUser' })
@@ -27,5 +29,13 @@ export class UserController {
   @MessagePattern({ cmd: 'getUserById' })
   getUserById(id: number): Promise<UserEntity> {
     return this.getUserByIdUseCase.exec(id);
+  }
+
+  @MessagePattern({ cmd: 'updateUser' })
+  updateUser(payload: {
+    id: number;
+    data: CreateUserArgs;
+  }): Promise<UserEntity> {
+    return this.updateUserUseCase.exec(payload);
   }
 }
